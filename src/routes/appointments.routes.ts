@@ -3,15 +3,13 @@ import { getCustomRepository } from 'typeorm';
 import { parseISO } from 'date-fns';
 
 import AppointmentsRepository from '../repositories/AppointmentsRepository';
-import CreateAppointmentService from '../services/CreateAppointmentServices';
+import CreateAppointmentService from '../services/CreateAppointmentService';
+
+import ensureAthenticate from '../middleware/ensureAthenticante';
 
 const appointmentsRouter = Router();
 
-/* Responsabilidade de uma rota
-  é receber a requisição,
-  chamar outro arquivo
-  e devolver a resposta
-*/
+appointmentsRouter.use(ensureAthenticate);
 
 appointmentsRouter.get('/', async (req, res) => {
   const appointmentsRepository = getCustomRepository(AppointmentsRepository);
@@ -41,3 +39,9 @@ appointmentsRouter.post('/', async (req, res) => {
 });
 
 export default appointmentsRouter;
+
+/* Responsabilidade de uma rota
+  é receber a requisição,
+  chamar outro arquivo
+  e devolver a resposta
+*/
