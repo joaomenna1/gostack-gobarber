@@ -33,7 +33,7 @@ class UsersRepository implements IUsersRepositories {
     return user;
   }
 
-  public async save(user: User): promise<User> {
+  public async save(user: User): Promise<User> {
     return this.ormRepository.save(user);
   }
 }
