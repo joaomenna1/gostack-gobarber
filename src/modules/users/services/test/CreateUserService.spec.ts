@@ -5,11 +5,11 @@ import FakeHashProvider from '../../providers/hashProvider/fakes/FakeHashProvide
 
 describe('CreateUserService', () => {
   it('should be able to create a new user', async () => {
-    const fakeAppointmentsRepository = new FakeUsersRepository();
+    const fakeUsersRepository = new FakeUsersRepository();
 
     const fakeHashProvider = new FakeHashProvider();
     const createUser = new CreateUserService(
-      fakeAppointmentsRepository,
+      fakeUsersRepository,
       fakeHashProvider
     );
 
@@ -23,11 +23,11 @@ describe('CreateUserService', () => {
   });
 
   it('should not be able to create a new user with same email from another', async () => {
-    const fakeAppointmentsRepository = new FakeUsersRepository();
+    const fakeUsersRepository = new FakeUsersRepository();
     const fakeHashProvider = new FakeHashProvider();
 
     const createUser = new CreateUserService(
-      fakeAppointmentsRepository,
+      fakeUsersRepository,
       fakeHashProvider
     );
 
