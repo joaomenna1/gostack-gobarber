@@ -20,7 +20,7 @@ interface IResponse {
 @injectable()
 class AuthenticateUserService {
   constructor(
-    @inject('UserRepository')
+    @inject('UsersRepository')
     private usersRepository: IUsersRepository,
     @inject('HashProvider')
     private hashProvider: IHashProvider
