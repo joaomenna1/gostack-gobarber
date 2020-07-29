@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import ensureAthenticate from '@shared/infra/http/middleware/ensureAthenticante';
+import ensureAthenticate from '@modules/users/infra/http/middleware/ensureAthenticante';
 import AppointmentsController from '../controllers/AppointmentsController';
 
 const appointmentsRouter = Router();
