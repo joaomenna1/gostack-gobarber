@@ -3,6 +3,7 @@
 .idea/
 build/
 temp/
-
+.env
 tmp/*
 !tmp/.gitkeep
+ormconfig.json
