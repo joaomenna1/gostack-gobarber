@@ -9,7 +9,7 @@ interface ITokenPayLoad {
   sub: string;
 }
 
-export default function ensureAuthenticate(
+export default function ensureAuthentication(
   request: Request,
   response: Response,
   next: NextFunction
@@ -17,7 +17,7 @@ export default function ensureAuthenticate(
   const authHeader = request.headers.authorization;
 
   if (!authHeader) {
-    throw new AppError('JWT token is missing', 401);
+    throw new AppError('JWT token is missing.', 401);
   }
 
   const [, token] = authHeader.split(' ');
@@ -27,10 +27,12 @@ export default function ensureAuthenticate(
 
     const { sub } = decoded as ITokenPayLoad;
 
-    request.user = { id: sub };
+    request.user = {
+      id: sub,
+    };
 
     return next();
-  } catch {
-    throw new AppError('Invalid JWT token', 401);
+  } catch (error) {
+    throw new AppError('Invalid token.', 401);
   }
 }
