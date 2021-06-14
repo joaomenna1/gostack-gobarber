@@ -4,9 +4,9 @@
   "type": "postgres",
   "host": "localhost",
   "port": 5432,
-  "username": "postgres",
+  "username": "docker",
   "password": "docker",
-  "database": "db_touchpay5",
+  "database": "db_test",
   "entities": [
   "./src/modules/**/infra/typeorm/entities/*.ts"
   ],
